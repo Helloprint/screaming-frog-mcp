@@ -1,0 +1,32 @@
+config:
+  runTime: "dockerCompose"
+  version: ""
+  framework: ""
+  buildCommand: "docker-compose build"
+  buildDir: "/"
+  runCommand: "docker-compose up -d"
+  environments:
+    - key: "MCP_TRANSPORT"
+      value: "sse"
+    - key: "SF_CLI_PATH"
+      value: "/usr/bin/screamingfrogseospider"
+    - key: "SF_LICENSE_USER"
+      value: ""
+    - key: "SF_LICENSE_KEY"
+      value: ""
+    - key: "FASTMCP_HOST"
+      value: "0.0.0.0"
+    - key: "FASTMCP_PORT"
+      value: "8000"
+
+ports:
+  - protocol: "HTTPS"
+    targetProtocol: "HTTP"
+    listeningPort: "443"
+    targetPort: "3001"
+    targetIP: "172.17.0.1"
+    public: true
+    path: "/"
+    isAuth: false
+    login: ""
+    password: ""
